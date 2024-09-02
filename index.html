@@ -66,21 +66,18 @@
     <h1>API Fetch Method Comparison | by Alucard0x1</h1>
 
     <div class="cards-container">
-        <!-- Vanilla JavaScript Fetch API Card -->
         <div class="card" id="vanilla-card">
             <h3>Vanilla JavaScript Fetch API</h3>
             <div class="time" id="vanilla-time"></div>
             <div class="data" id="vanilla-data"></div>
         </div>
 
-        <!-- Axios Fetch API Card -->
         <div class="card" id="axios-card">
             <h3>Axios Fetch API</h3>
             <div class="time" id="axios-time"></div>
             <div class="data" id="axios-data"></div>
         </div>
 
-        <!-- Alpine.js Fetch API Card -->
         <div class="card" id="alpine-card" x-data="{
             time: '',
             data: '',
@@ -89,7 +86,7 @@
                 fetch('https://jsonplaceholder.typicode.com/posts')
                     .then(response => response.json())
                     .then(data => {
-                        const posts = Array(100).fill(data).flat(); // Simulate 10,000 posts
+                        const posts = Array(100).fill(data).flat();
                         const endTime = performance.now();
                         const alpineTime = (endTime - startTime).toFixed(2);
                         this.time = alpineTime;
@@ -104,28 +101,24 @@
             <div class="data" x-text="data"></div>
         </div>
 
-        <!-- jQuery Fetch API Card -->
         <div class="card" id="jquery-card">
             <h3>jQuery Fetch API</h3>
             <div class="time" id="jquery-time"></div>
             <div class="data" id="jquery-data"></div>
         </div>
 
-        <!-- XMLHttpRequest Fetch API Card -->
         <div class="card" id="xhr-card">
             <h3>XMLHttpRequest Fetch API</h3>
             <div class="time" id="xhr-time"></div>
             <div class="data" id="xhr-data"></div>
         </div>
 
-        <!-- Async/Await Fetch API Card -->
         <div class="card" id="async-card">
             <h3>Async/Await Fetch API</h3>
             <div class="time" id="async-time"></div>
             <div class="data" id="async-data"></div>
         </div>
 
-        <!-- SuperAgent Fetch API Card -->
         <div class="card" id="superagent-card">
             <h3>SuperAgent Fetch API</h3>
             <div class="time" id="superagent-time"></div>
@@ -146,17 +139,15 @@
     <script>
         const fetchTimes = [];
 
-        // Function to simulate fetching 10,000 posts
         function simulateLargeFetch(data) {
             return Array(100).fill(data).flat();
         }
 
-        // Vanilla JavaScript Fetch API
         const vanillaStartTime = performance.now();
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
             .then(data => {
-                const posts = simulateLargeFetch(data); // Simulate 10,000 posts
+                const posts = simulateLargeFetch(data);
                 const vanillaEndTime = performance.now();
                 const vanillaTime = (vanillaEndTime - vanillaStartTime).toFixed(2);
                 document.getElementById('vanilla-time').textContent = `Time: ${vanillaTime} ms`;
@@ -165,11 +156,10 @@
                 drawChart();
             });
 
-        // Axios Fetch API
         const axiosStartTime = performance.now();
         axios.get('https://jsonplaceholder.typicode.com/posts')
             .then(response => {
-                const posts = simulateLargeFetch(response.data); // Simulate 10,000 posts
+                const posts = simulateLargeFetch(response.data);
                 const axiosEndTime = performance.now();
                 const axiosTime = (axiosEndTime - axiosStartTime).toFixed(2);
                 document.getElementById('axios-time').textContent = `Time: ${axiosTime} ms`;
@@ -178,10 +168,9 @@
                 drawChart();
             });
 
-        // jQuery Fetch API
         const jqueryStartTime = performance.now();
         $.get('https://jsonplaceholder.typicode.com/posts', function(data) {
-            const posts = simulateLargeFetch(data); // Simulate 10,000 posts
+            const posts = simulateLargeFetch(data);
             const jqueryEndTime = performance.now();
             const jqueryTime = (jqueryEndTime - jqueryStartTime).toFixed(2);
             document.getElementById('jquery-time').textContent = `Time: ${jqueryTime} ms`;
@@ -190,14 +179,13 @@
             drawChart();
         });
 
-        // XMLHttpRequest Fetch API
         const xhrStartTime = performance.now();
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 const data = JSON.parse(xhr.responseText);
-                const posts = simulateLargeFetch(data); // Simulate 10,000 posts
+                const posts = simulateLargeFetch(data);
                 const xhrEndTime = performance.now();
                 const xhrTime = (xhrEndTime - xhrStartTime).toFixed(2);
                 document.getElementById('xhr-time').textContent = `Time: ${xhrTime} ms`;
@@ -208,12 +196,11 @@
         };
         xhr.send();
 
-        // Async/Await Fetch API
         async function fetchAsyncData() {
             const asyncStartTime = performance.now();
             const response = await fetch('https://jsonplaceholder.typicode.com/posts');
             const data = await response.json();
-            const posts = simulateLargeFetch(data); // Simulate 10,000 posts
+            const posts = simulateLargeFetch(data);
             const asyncEndTime = performance.now();
             const asyncTime = (asyncEndTime - asyncStartTime).toFixed(2);
             document.getElementById('async-time').textContent = `Time: ${asyncTime} ms`;
@@ -223,7 +210,6 @@
         }
         fetchAsyncData();
 
-        // SuperAgent Fetch API
         const superagentStartTime = performance.now();
         superagent
             .get('https://jsonplaceholder.typicode.com/posts')
@@ -232,7 +218,7 @@
                     console.error(err);
                     return;
                 }
-                const posts = simulateLargeFetch(res.body); // Simulate 10,000 posts
+                const posts = simulateLargeFetch(res.body);
                 const superagentEndTime = performance.now();
                 const superagentTime = (superagentEndTime - superagentStartTime).toFixed(2);
                 document.getElementById('superagent-time').textContent = `Time: ${superagentTime} ms`;
@@ -241,9 +227,8 @@
                 drawChart();
             });
 
-        // Draw the chart
         function drawChart() {
-            if (fetchTimes.length === 7) { // Ensure all methods are finished
+            if (fetchTimes.length === 7) {
                 const ctx = document.getElementById('fetchChart').getContext('2d');
                 new Chart(ctx, {
                     type: 'bar',
