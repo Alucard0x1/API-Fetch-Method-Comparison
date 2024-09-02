@@ -63,7 +63,7 @@ The results of the fetch operations are displayed in a bar chart using Chart.js.
 
 ## 🌐 Demo
 
-You can view the live demo of this project on Vercel: [Live Demo](https://your-vercel-demo-link.com)
+You can view the live demo of this project on Vercel: [Live Demo](https://api-fetch-method-comparison.vercel.app/)
 
 ## 👤 Author
 
