@@ -1,5 +1,9 @@
 # 🚀 API Fetch Method Comparison
 
+## 🖼️ Screenshot
+
+![Screenshot of the API Fetch Method Comparison](./Screenshot_1217.png)
+
 This project demonstrates the performance comparison of different methods for fetching data from an API. The methods compared are:
 
 1. **Vanilla JavaScript Fetch API** 🟢
@@ -13,6 +17,8 @@ This project demonstrates the performance comparison of different methods for fe
 ## 📋 Project Overview
 
 The goal of this project is to fetch a large dataset (simulated as 10,000 posts) using various popular methods and measure the time taken by each method to complete the fetch operation. The results are then visualized in a bar chart, allowing for a clear comparison of the performance of each method.
+
+
 
 ## 🛠️ Technologies Used
 
