@@ -1,5 +1,9 @@
 # 🚀 API Fetch Method Comparison
 
+## 🌐 Demo
+
+You can view the live demo of this project on Vercel: [Live Demo](https://api-fetch-method-comparison.vercel.app/)
+
 ## 🖼️ Screenshot
 
 ![Screenshot of the API Fetch Method Comparison](./Screenshot_1217.png)
@@ -66,10 +70,6 @@ The results of the fetch operations are displayed in a bar chart using Chart.js.
 1. Clone the repository.
 2. Open the `index.html` file in a web browser.
 3. The web page will automatically fetch the data using the different methods and display the results.
-
-## 🌐 Demo
-
-You can view the live demo of this project on Vercel: [Live Demo](https://api-fetch-method-comparison.vercel.app/)
 
 ## 👤 Author
 
